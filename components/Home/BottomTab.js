@@ -12,7 +12,6 @@ const BottomTab = () => {
       <Icon name="home" text="home" />
       <Icon name="search" text="search" />
       <Icon name="shopping-bag" text="shop" />
-      <Icon name="paper" text="orders" />
       <Icon name="user" text="user" />
     </View>
   );
@@ -24,7 +23,6 @@ const Icon = ({ name, text }) => {
       <View
         style={{
           justifyContent: "space-between",
-          height: "100%",
         }}>
         <FontAwesome style={{ alignSelf: "center" }} name={name} size={24} />
         <Text style={{ fontWeight: "bold" }}>{text}</Text>

@@ -1,11 +1,10 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import HeaderTab from "../components/HeaderTab";
-import Searchbar from "../components/Searchbar";
-import Categories from "../components/Categories";
-import RestroItems, { localRestaurants } from "../components/RestroItems";
-import BottomTab from "../components/BottomTab";
-
+import HeaderTab from "../components/Home/HeaderTab";
+import Searchbar from "../components/Home/Searchbar";
+import Categories from "../components/Home/Categories";
+import RestroItems, { localRestaurants } from "../components/Home/RestroItems";
+import BottomTab from "../components/Home/BottomTab";
 const YELP_API_KEY =
   "bdRJutLhFAQJ36t7b89CWjHFBU4OKzjt9wvZzcY-nkgmvTqlNMjZWV1eG7iBQ9R74SyfxRg9LWnBAkZY06BtAZAe4d2dfX-2vuX8a1l5V7foctHfX9UKEyoM5ts3YXYx";
 

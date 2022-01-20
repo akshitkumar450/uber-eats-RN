@@ -1,12 +1,13 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import shopBag from "../assets/images/shopping-bag.png";
-import softDrink from "../assets/images/soft-drink.png";
-import bread from "../assets/images/bread.png";
-import fastFood from "../assets/images/fast-food.png";
-import coffee from "../assets/images/coffee.png";
-import deals from "../assets/images/deals.png";
-import desserts from "../assets/images/desserts.png";
+import shopBag from "../../assets/images/shopping-bag.png";
+import softDrink from "../../assets/images/soft-drink.png";
+import bread from "../../assets/images/bread.png";
+import fastFood from "../../assets/images/fast-food.png";
+import coffee from "../../assets/images/coffee.png";
+import deals from "../../assets/images/deals.png";
+import desserts from "../../assets/images/desserts.png";
+
 const items = [
   {
     image: shopBag,

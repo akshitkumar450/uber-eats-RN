@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import RestaurantDetail from "./components/Details/RestaurantDetail";
 import Home from "./screens/Home";
 
 export default function App() {
