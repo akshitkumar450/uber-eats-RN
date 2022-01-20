@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const localRestaurants = [
+export const localRestaurants = [
   {
     name: "Beachside Bar",
     image_url:
@@ -32,10 +32,10 @@ const localRestaurants = [
   },
 ];
 
-const RestroItems = () => {
+const RestroItems = ({ data }) => {
   return (
     <React.Fragment>
-      {localRestaurants.map((restaurant, idx) => (
+      {data.map((restaurant, idx) => (
         <TouchableOpacity key={idx} activeOpacity={0.8}>
           <View style={styles.container}>
             <RestroImage img={restaurant.image_url} />
