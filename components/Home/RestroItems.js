@@ -32,11 +32,14 @@ export const localRestaurants = [
   },
 ];
 
-const RestroItems = ({ data }) => {
+const RestroItems = ({ data, navigation }) => {
   return (
     <React.Fragment>
       {data.map((restaurant, idx) => (
-        <TouchableOpacity key={idx} activeOpacity={0.8}>
+        <TouchableOpacity
+          key={idx}
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate("Detail")}>
           <View style={styles.container}>
             <RestroImage img={restaurant.image_url} />
             <InfoContainer name={restaurant.name} rating={restaurant.rating} />

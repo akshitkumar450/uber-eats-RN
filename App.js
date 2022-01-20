@@ -1,11 +1,22 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import Detail from "./screens/Detail";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
+import Detail from "./screens/Detail";
+
+const Stack = createNativeStackNavigator();
+
+const screenOptions = {
+  headerShown: false, // for not showing the name of the component on the corresponding screen
+};
 
 export default function App() {
-  // return <Home />;
-  return <Detail />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Detail" component={Detail} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
-
-const styles = StyleSheet.create({});
