@@ -7,7 +7,12 @@ const MenuItem = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
       {foods.map((data, idx) => (
         <View key={idx} style={styles.container}>
-          <View style={{ justifyContent: "space-evenly", flex: 0.7 }}>
+          <View
+            style={{
+              justifyContent: "space-evenly",
+              flex: 0.7,
+              paddingRight: 10,
+            }}>
             <Text
               style={{
                 fontWeight: "bold",

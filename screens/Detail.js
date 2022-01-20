@@ -3,10 +3,11 @@ import React from "react";
 import About from "../components/Details/About";
 import MenuItem from "../components/Details/MenuItem";
 
-const Detail = () => {
+const Detail = ({ route, navigation }) => {
+  // console.log(route.params.restaurant);
   return (
     <View>
-      <About />
+      <About restaurant={route.params.restaurant} />
       <MenuItem />
     </View>
   );

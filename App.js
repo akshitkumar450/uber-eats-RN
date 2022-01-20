@@ -7,7 +7,7 @@ import Detail from "./screens/Detail";
 const Stack = createNativeStackNavigator();
 
 const screenOptions = {
-  headerShown: false, // for not showing the name of the component on the corresponding screen
+  headerShown: true, // for not showing the name of the component on the corresponding screen
 };
 
 export default function App() {

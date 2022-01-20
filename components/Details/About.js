@@ -1,13 +1,16 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import bg1 from "../../assets/images/bg1.jpg";
 
-const About = () => {
+const About = ({ restaurant }) => {
+  const formattedText = `${restaurant.categories.join("·")} · ${
+    restaurant.price
+  } · 💰💰 · ${restaurant.rating} · 🌟🌟· (${restaurant.reviews}+) `;
+
   return (
     <View style={{ paddingBottom: 20 }}>
-      <RestaurantImage img={bg1} />
-      <RestaurantTitle text="Farmhouse Kitchen Thai cuisine" />
-      <RestaurantDescription text="FThai.Comfort food.$5. 4*. (292+)" />
+      <RestaurantImage img={restaurant.image_url} />
+      <RestaurantTitle text={restaurant.name} />
+      <RestaurantDescription text={formattedText} />
     </View>
   );
 };
@@ -15,7 +18,9 @@ const About = () => {
 const RestaurantImage = ({ img }) => {
   return (
     <Image
-      source={img}
+      source={{
+        uri: img,
+      }}
       style={{
         width: "100%",
         height: 200,
