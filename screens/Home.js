@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import HeaderTab from "../components/HeaderTab";
 import Searchbar from "../components/Searchbar";
 import Categories from "../components/Categories";
+import RestroItem from "../components/RestroItem";
 
 const Home = () => {
   return (
@@ -11,7 +12,13 @@ const Home = () => {
         <HeaderTab />
         <Searchbar />
       </View>
-      <Categories />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Categories />
+        <RestroItem />
+        <RestroItem />
+        <RestroItem />
+        <RestroItem />
+      </ScrollView>
     </View>
   );
 };
