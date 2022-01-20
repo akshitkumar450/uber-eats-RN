@@ -3,7 +3,7 @@ import React from "react";
 import HeaderTab from "../components/HeaderTab";
 import Searchbar from "../components/Searchbar";
 import Categories from "../components/Categories";
-import RestroItem from "../components/RestroItem";
+import RestroItems from "../components/RestroItems";
 
 const Home = () => {
   return (
@@ -14,10 +14,7 @@ const Home = () => {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
-        <RestroItem />
-        <RestroItem />
-        <RestroItem />
-        <RestroItem />
+        <RestroItems />
       </ScrollView>
     </View>
   );

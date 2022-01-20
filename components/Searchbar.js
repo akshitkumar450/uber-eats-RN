@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   right: {
     flexDirection: "row",
     backgroundColor: "white",
+    alignItems: "center",
     padding: 5,
     marginRight: 10,
     borderRadius: 50,
