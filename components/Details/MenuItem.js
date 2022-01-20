@@ -1,5 +1,6 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import { foods } from "./foodData";
 const MenuItem = () => {
@@ -9,9 +10,18 @@ const MenuItem = () => {
         <View key={idx} style={styles.container}>
           <View
             style={{
+              flex: 0.1,
+            }}>
+            <BouncyCheckbox
+              iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
+              fillColor="green"
+            />
+          </View>
+          <View
+            style={{
               justifyContent: "space-evenly",
-              flex: 0.7,
-              paddingRight: 10,
+              flex: 0.6,
+              paddingRight: 13,
             }}>
             <Text
               style={{
@@ -51,8 +61,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     color: "black",
-    padding: 10,
+    paddingRight: 15,
+    paddingLeft: 10,
+    paddingVertical: 10,
     shadowColor: "black",
     shadowRadius: 5,
     shadowOpacity: 0.2,
