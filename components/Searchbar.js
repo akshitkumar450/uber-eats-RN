@@ -17,7 +17,7 @@ const Searchbar = () => {
           },
           textInputContainer: {
             backgroundColor: "#eee",
-            marginHorizontal: 30,
+            marginHorizontal: 10,
             borderRadius: 50,
             alignItems: "center",
           },

@@ -2,12 +2,16 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import HeaderTab from "../components/HeaderTab";
 import Searchbar from "../components/Searchbar";
+import Categories from "../components/Categories";
 
 const Home = () => {
   return (
     <View style={styles.container}>
-      <HeaderTab />
-      <Searchbar />
+      <View>
+        <HeaderTab />
+        <Searchbar />
+      </View>
+      <Categories />
     </View>
   );
 };
