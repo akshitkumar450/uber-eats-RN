@@ -45,7 +45,6 @@ const Buttons = ({ title, select, viewStyles, textStyles, setSelect }) => {
         <Text
           style={{
             fontSize: 16,
-            fontWeight: 800,
             ...textStyles,
           }}>
           {title}
@@ -59,7 +58,8 @@ export default HeaderTab;
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,
+    backgroundColor: "white",
+    padding: 10,
     flexDirection: "row",
     justifyContent: "center",
   },
