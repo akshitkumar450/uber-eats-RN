@@ -4,7 +4,7 @@ import bg1 from "../../assets/images/bg1.jpg";
 
 const About = () => {
   return (
-    <View>
+    <View style={{ paddingBottom: 20 }}>
       <RestaurantImage img={bg1} />
       <RestaurantTitle text="Farmhouse Kitchen Thai cuisine" />
       <RestaurantDescription text="FThai.Comfort food.$5. 4*. (292+)" />
