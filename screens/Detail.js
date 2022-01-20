@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import About from "../components/Details/About";
 
 const Detail = () => {
   return (
     <View>
-      <Text>detsuil</Text>
+      <About />
     </View>
   );
 };
