@@ -2,11 +2,21 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-const Searchbar = () => {
+
+const Searchbar = ({ setCity }) => {
+  const cityHandler = (city) => {
+    setCity(city);
+  };
   return (
     <View style={styles.container}>
       <GooglePlacesAutocomplete
         placeholder="search"
+        // item which we will select from searchbar options
+        onPress={(data, details = null) => {
+          console.log(data.description);
+          const city = data.description.split(",")[0];
+          cityHandler(city);
+        }}
         styles={{
           textInput: {
             fontSize: 16,
@@ -35,6 +45,10 @@ const Searchbar = () => {
             <Text style={{ marginLeft: 5 }}>search</Text>
           </View>
         )}
+        // get this key from google cloud
+        query={{
+          key: "AIzaSyAU5J_Itq38dRC87ij5XUb2k6xaZafuKhE",
+        }}
       />
     </View>
   );

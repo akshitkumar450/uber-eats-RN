@@ -1,51 +1,29 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 
-const HeaderTab = () => {
-  const [select, setSelect] = useState(false);
+const HeaderTab = ({ active, setActive }) => {
   return (
     <View style={styles.container}>
-      <Buttons
-        title="delivery"
-        viewStyles={{
-          backgroundColor: select ? "black" : "white",
-        }}
-        textStyles={{
-          color: select ? "white" : "black",
-        }}
-        select={select}
-        setSelect={setSelect}
-      />
-
-      <Buttons
-        title="pickup"
-        viewStyles={{
-          backgroundColor: select ? "white" : "black",
-        }}
-        textStyles={{
-          color: select ? "black" : "white",
-        }}
-        select={select}
-        setSelect={setSelect}
-      />
+      <Buttons title="delivery" active={active} setActive={setActive} />
+      <Buttons title="pickup" active={active} setActive={setActive} />
     </View>
   );
 };
 
-const Buttons = ({ title, select, viewStyles, textStyles, setSelect }) => {
+const Buttons = ({ title, active, setActive }) => {
   return (
-    <TouchableOpacity onPress={() => setSelect(!select)}>
+    <TouchableOpacity onPress={() => setActive(title)}>
       <View
         style={{
           paddingVertical: 6,
           paddingHorizontal: 16,
           borderRadius: 100,
-          ...viewStyles,
+          backgroundColor: active === title ? "black" : "white", //if the current item is selected then it will be highlighted
         }}>
         <Text
           style={{
             fontSize: 16,
-            ...textStyles,
+            color: active === title ? "white" : "black",
           }}>
           {title}
         </Text>
