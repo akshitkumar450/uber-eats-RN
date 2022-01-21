@@ -14,7 +14,6 @@ const MenuItem = () => {
   const foodInCart = (currFood) => {
     return Boolean(data.find((item) => item.title === currFood.title));
   };
-  console.log(data);
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {foods.map((data, idx) => (
