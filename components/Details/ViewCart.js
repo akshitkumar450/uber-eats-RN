@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import firebase from "firebase";
 import db from "../../firebase";
+import LottieView from "lottie-react-native";
 
 const ViewCart = ({ navigation }) => {
-  const [modalVisible, setModalVisible] = useState(false);
   const data = useSelector((state) => state.cart.cartItems);
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const price = data?.reduce(
     (acc, item) => acc + Number(item?.price?.slice(1)),
@@ -14,12 +17,16 @@ const ViewCart = ({ navigation }) => {
   );
 
   const addToDb = async () => {
+    setLoading(true);
+    setModalVisible(false);
     await db.collection("orders").add({
       cartItems: data,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
-    setModalVisible(false);
-    navigation.navigate("Orders");
+    setTimeout(() => {
+      setLoading(false);
+      navigation.navigate("Orders");
+    }, 3000);
   };
   return (
     <React.Fragment>
@@ -59,6 +66,27 @@ const ViewCart = ({ navigation }) => {
         navigation={navigation}
         setModalVisible={setModalVisible}
       />
+
+      {/** loader */}
+      {loading && (
+        <View
+          style={{
+            backgroundColor: "black",
+            position: "absolute",
+            opacity: 0.6,
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            width: "100%",
+          }}>
+          <LottieView
+            style={{ height: 200 }}
+            source={require("../../assets/animations/scanner.json")}
+            autoPlay
+            speed={3}
+          />
+        </View>
+      )}
     </React.Fragment>
   );
 };
