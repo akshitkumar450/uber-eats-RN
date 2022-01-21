@@ -9,10 +9,12 @@ const MenuItem = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.cart.cartItems);
 
+  //to check the check the items automatically when we leave the page and come back
   // to check whether the current food is in the cart ,,if it is in the cart then the checkbox will be checked when we leave page and come back
   const foodInCart = (currFood) => {
     return Boolean(data.find((item) => item.title === currFood.title));
   };
+  console.log(data);
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {foods.map((data, idx) => (
@@ -24,7 +26,8 @@ const MenuItem = () => {
             <BouncyCheckbox
               iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
               fillColor="green"
-              onPress={(isChecked) => dispatch(addItem(data, isChecked))}
+              // if we select Checked will be true else false
+              onPress={(Checked) => dispatch(addItem(data, Checked))}
               isChecked={foodInCart(data)}
             />
           </View>

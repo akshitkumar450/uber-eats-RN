@@ -14,7 +14,7 @@ export const cartReducer = (state = initialState, action) => {
           cartItems: [...state.cartItems, action.payload],
         };
       } else {
-        //   if the item is unchecked and the item was there it the cart ,,then remove it
+        //   if the item is unchecked and the item was there it the cart ,,then remove it (this will happen when we uncheck the same item which is already in the cart)
         let temp = state.cartItems?.filter(
           (item) => item.title !== action.payload.title
         );
