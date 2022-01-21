@@ -1,7 +1,13 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../Redux/actions.js/actions";
+import { useSelector } from "react-redux";
 
 const ViewCart = () => {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.cart.items);
+  console.log(data);
   return (
     <View
       style={{
@@ -11,6 +17,7 @@ const ViewCart = () => {
         bottom: 30,
       }}>
       <TouchableOpacity
+        onPress={() => dispatch(addItem("helos"))}
         style={{
           backgroundColor: "rgba(0,0,0,0.8)",
           padding: 13,
