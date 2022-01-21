@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import Detail from "./screens/Detail";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
+import OrderCompleted from "./screens/OrderCompleted";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Detail" component={Detail} />
+          <Stack.Screen name="Orders" component={OrderCompleted} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

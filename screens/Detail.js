@@ -10,7 +10,7 @@ const Detail = ({ route, navigation }) => {
     <View style={styles.container}>
       <About restaurant={route.params.restaurant} />
       <MenuItem />
-      <ViewCart />
+      <ViewCart navigation={navigation} />
     </View>
   );
 };

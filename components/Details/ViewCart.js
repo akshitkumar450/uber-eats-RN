@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import firebase from "firebase";
 import db from "../../firebase";
 
-const ViewCart = () => {
+const ViewCart = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const data = useSelector((state) => state.cart.cartItems);
 
@@ -19,6 +19,7 @@ const ViewCart = () => {
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setModalVisible(false);
+    navigation.navigate("Orders");
   };
   return (
     <React.Fragment>
@@ -55,6 +56,7 @@ const ViewCart = () => {
         price={price}
         addToDb={addToDb}
         modalVisible={modalVisible}
+        navigation={navigation}
         setModalVisible={setModalVisible}
       />
     </React.Fragment>
@@ -68,6 +70,7 @@ const CustomModal = ({
   modalVisible,
   price,
   data,
+  navigation,
   addToDb,
 }) => {
   return (
@@ -82,7 +85,7 @@ const CustomModal = ({
       }}>
       <View style={styles.centeredView}>
         <ListItems data={data} price={price} />
-        <BtnCheckout addToDb={addToDb} price={price} />
+        <BtnCheckout addToDb={addToDb} price={price} navigation={navigation} />
         <BtnClose setModalVisible={setModalVisible} />
       </View>
     </Modal>
@@ -124,9 +127,9 @@ const BtnClose = ({ setModalVisible }) => (
   </TouchableOpacity>
 );
 
-const BtnCheckout = ({ price, addToDb }) => (
+const BtnCheckout = ({ price, addToDb, navigation }) => (
   <View style={styles.btnCheckout}>
-    <TouchableOpacity onPress={addToDb}>
+    <TouchableOpacity onPress={() => addToDb()}>
       <Text
         style={{
           color: "white",

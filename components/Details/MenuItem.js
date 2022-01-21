@@ -1,11 +1,13 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-
 import { foods } from "./foodData";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../Redux/actions.js/actions";
-const MenuItem = () => {
+
+// making this component reuseable so that we can use this in orderComleted component
+// we will pass checkbox and orders from orderCompleted
+const MenuItem = ({ orders = foods, checkBox = true }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.cart.cartItems);
 
@@ -16,20 +18,23 @@ const MenuItem = () => {
   };
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      {foods.map((data, idx) => (
+      {orders?.map((data, idx) => (
         <View key={idx} style={styles.container}>
-          <View
-            style={{
-              flex: 0.1,
-            }}>
-            <BouncyCheckbox
-              iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
-              fillColor="green"
-              // if we select Checked will be true else false
-              onPress={(Checked) => dispatch(addItem(data, Checked))}
-              isChecked={foodInCart(data)}
-            />
-          </View>
+          {checkBox && (
+            <View
+              style={{
+                flex: 0.1,
+              }}>
+              <BouncyCheckbox
+                iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
+                fillColor="green"
+                // if we select Checked will be true else false
+                onPress={(Checked) => dispatch(addItem(data, Checked))}
+                isChecked={foodInCart(data)}
+              />
+            </View>
+          )}
+
           <View
             style={{
               justifyContent: "space-evenly",
