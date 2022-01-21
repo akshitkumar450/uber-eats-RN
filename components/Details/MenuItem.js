@@ -3,7 +3,16 @@ import React from "react";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import { foods } from "./foodData";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../Redux/actions.js/actions";
 const MenuItem = () => {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.cart.cartItems);
+
+  // to check whether the current food is in the cart ,,if it is in the cart then the checkbox will be checked when we leave page and come back
+  const foodInCart = (currFood) => {
+    return Boolean(data.find((item) => item.title === currFood.title));
+  };
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {foods.map((data, idx) => (
@@ -15,6 +24,8 @@ const MenuItem = () => {
             <BouncyCheckbox
               iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
               fillColor="green"
+              onPress={(isChecked) => dispatch(addItem(data, isChecked))}
+              isChecked={foodInCart(data)}
             />
           </View>
           <View

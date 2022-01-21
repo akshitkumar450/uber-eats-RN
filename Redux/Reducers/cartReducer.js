@@ -1,22 +1,29 @@
 const initialState = {
-  items: {
-    cartItems: [],
-    name: "",
-  },
+  cartItems: [],
+  name: "",
 };
 
 export const cartReducer = (state = initialState, action) => {
-  console.log(action.type);
+  console.log(action);
   switch (action.type) {
-    case "ADD":
-      return {
-        items: {
+    case "ADD": {
+      // if the the current item is checked then add to cart
+      if (action.payload.isChecked) {
+        return {
           ...state,
-          cartItems: [...state.items.cartItems, action.payload],
-        },
-      };
-    case "REMOVE":
-      return {};
+          cartItems: [...state.cartItems, action.payload],
+        };
+      } else {
+        //   if the item is unchecked and the item was there it the cart ,,then remove it
+        let temp = state.cartItems?.filter(
+          (item) => item.title !== action.payload.title
+        );
+        return {
+          ...state,
+          cartItems: temp,
+        };
+      }
+    }
     default:
       return state;
   }
