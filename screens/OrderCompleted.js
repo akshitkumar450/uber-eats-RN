@@ -52,9 +52,7 @@ const OrderCompleted = () => {
         {/*reusing the menuitem component */}
         <MenuItem orders={orders?.[0]?.cartItems} checkBox={false} />
 
-        {/*animation at end
-        
-           <View
+        <View
           style={{
             padding: 20,
           }}>
@@ -67,7 +65,7 @@ const OrderCompleted = () => {
             autoPlay
             speed={0.5}
           />
-        </View>*/}
+        </View>
       </ScrollView>
     </View>
   );

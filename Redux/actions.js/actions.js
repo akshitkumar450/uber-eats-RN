@@ -4,8 +4,3 @@ export const addItem = (item, isChecked) => {
     payload: { ...item, isChecked },
   };
 };
-export const removeItem = () => {
-  return {
-    type: "REMOVE",
-  };
-};
